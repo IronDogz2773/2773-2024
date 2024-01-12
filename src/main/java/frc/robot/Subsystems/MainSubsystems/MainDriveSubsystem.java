@@ -1,11 +1,6 @@
 package frc.robot.Subsystems.MainSubsystems;
 
-import edu.wpi.first.math.filter.LinearFilter;
-import edu.wpi.first.math.filter.SlewRateLimiter;
-//
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-//import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Constants;
 
@@ -21,19 +16,23 @@ public class MainDriveSubsystem extends SubsystemBase {
   private  CANSparkMax rightForMotor = new CANSparkMax(Constants.rightForWheelsCANID, MotorType.kBrushless);
   private final CANSparkMax leftBackMotor = new CANSparkMax(Constants.leftBackWheelsCANID, MotorType.kBrushless);
   private final CANSparkMax rightBackMotor = new CANSparkMax(Constants.rightBackWheelsCANID, MotorType.kBrushless);
-  leftForMotor.restoreFactoryDefaults();
-  leftBackMotor.restoreFactoryDefaults();
-  leftBackMotor.follow(leftForMotor);
+  private final DifferentialDrive mainDrive = new DifferentialDrive(leftForMotor, rightForMotor);
+
   //private final MotorControllerGroup leftGroup = new MotorControllerGroup(leftBackMotor, leftForMotor);
  // private final MotorControllerGroup rightGroup = new MotorControllerGroup(rightBackMotor, rightForMotor);
   //private final DifferentialDrive mainDrive = new DifferentialDrive(leftGroup, rightGroup);
 
   /** Creates a new DriveSubsystem. */
   public MainDriveSubsystem() {
+      leftBackMotor.follow(leftForMotor);
+      rightBackMotor.follow(rightForMotor);
+
     // We need to invert one side of the drivetrain so that positive voltages
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
-    //rightGroup.setInverted(true);
+      rightForMotor.setInverted(true);
+      rightBackMotor.setInverted(true);
+
   }
 
   @Override
@@ -53,28 +52,28 @@ public class MainDriveSubsystem extends SubsystemBase {
   }
 
   public void arcadeDrive(double speed, double rotation) {
-    //mainDrive.arcadeDrive(speed, rotation);
+    mainDrive.arcadeDrive(speed, rotation);
   }
 
   public void rotation(double speed) {
-   // mainDrive.tankDrive(speed, -speed);
+    mainDrive.tankDrive(speed, -speed);
   }
 
   // Drive with tank drive
   public void driveLine(double speed) {
-    //mainDrive.tankDrive(speed, speed);
+    mainDrive.tankDrive(speed, speed);
   }
 
   public void driveSlow()
-  {//mainDrive.tankDrive(0.2,0.2);
+  { mainDrive.tankDrive(0.2,0.2);
 }
 
   public void stopAllDrive() {
-    //mainDrive.tankDrive(0, 0);
+    mainDrive.tankDrive(0, 0);
   }
 
   public void driveBack() {
-    //mainDrive.tankDrive(-0.3, -0.3);
+    mainDrive.tankDrive(-0.3, -0.3);
   }
 }
 // end
