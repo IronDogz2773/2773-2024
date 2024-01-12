@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Constants;
+
+import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class MainDriveSubsystem extends SubsystemBase {
@@ -15,10 +17,13 @@ public class MainDriveSubsystem extends SubsystemBase {
   // DifferentialDrive(m_leftMotor, m_rightMotor);
   // Above is our old DifferentialDrive, now we are using MotorControllerGroups
   // specific drive motors
-  private final Spark leftForMotor = new Spark(Constants.leftForWheelsCANID, Constants.DriveMotorType);
-  private final Spark rightForMotor = new Spark(Constants.rightForWheelsCANID, Constants.DriveMotorType);
-  private final Spark leftBackMotor = new Spark(Constants.leftBackWheelsCANID, Constants.DriveMotorType);
-  private final Spark rightBackMotor = new Spark(Constants.rightBackWheelsCANID, Constants.DriveMotorType);
+  private  CANSparkMax leftForMotor = new CANSparkMax(Constants.leftForWheelsCANID, MotorType.kBrushless);
+  private  CANSparkMax rightForMotor = new CANSparkMax(Constants.rightForWheelsCANID, MotorType.kBrushless);
+  private final CANSparkMax leftBackMotor = new CANSparkMax(Constants.leftBackWheelsCANID, MotorType.kBrushless);
+  private final CANSparkMax rightBackMotor = new CANSparkMax(Constants.rightBackWheelsCANID, MotorType.kBrushless);
+  leftForMotor.restoreFactoryDefaults();
+  leftBackMotor.restoreFactoryDefaults();
+  leftBackMotor.follow(leftForMotor);
   //private final MotorControllerGroup leftGroup = new MotorControllerGroup(leftBackMotor, leftForMotor);
  // private final MotorControllerGroup rightGroup = new MotorControllerGroup(rightBackMotor, rightForMotor);
   //private final DifferentialDrive mainDrive = new DifferentialDrive(leftGroup, rightGroup);
