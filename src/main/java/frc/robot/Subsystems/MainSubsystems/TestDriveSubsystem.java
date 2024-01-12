@@ -7,7 +7,7 @@ import frc.robot.Constants.Constants;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
-public class MainDriveSubsystem extends SubsystemBase {
+public class TestDriveSubsystem extends SubsystemBase {
   // private final DifferentialDrive m_robotDrive = new
   // DifferentialDrive(m_leftMotor, m_rightMotor);
   // Above is our old DifferentialDrive, now we are using MotorControllerGroups
@@ -23,7 +23,7 @@ public class MainDriveSubsystem extends SubsystemBase {
   //private final DifferentialDrive mainDrive = new DifferentialDrive(leftGroup, rightGroup);
 
   /** Creates a new DriveSubsystem. */
-  public MainDriveSubsystem() {
+  public TestDriveSubsystem() {
       leftBackMotor.follow(leftForMotor);
       rightBackMotor.follow(rightForMotor);
 

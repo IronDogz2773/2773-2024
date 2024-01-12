@@ -1,12 +1,15 @@
 package frc.robot.Constants;
 
-import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
-import com.revrobotics.CANSparkLowLevel.MotorType;
-
+//import com.revrobotics.CANSparkLowLevel;
 
 public class TestConstants {
     public static boolean IsTestRobot = true;
 
+    //more drive command stuff
+    public static final double BalanceSpeed = 0.3;
+    public static final double DpadSpeed = 0.3;
+    public static final double SpeedIncrease = 0.9;
+    
     // constants for the CANIDs
     public static final int leftForWheelsCANID = 15;
     public static final int rightForWheelsCANID = 13;
@@ -22,7 +25,7 @@ public class TestConstants {
     public static final double RotationFactorLow = 0.3;
     public static final double RotationFactorHigh = 0.5;
 
-    // create a private class for the motorType, brushless motors
-    public static final CANSparkLowLevel.MotorType kBrushless;
+    // create a private class for the motorType, brushless motors, DOES NOT WORK ATM
+    //public static final CANSparkLowLevel.MotorType kBrushless;
 
 }
