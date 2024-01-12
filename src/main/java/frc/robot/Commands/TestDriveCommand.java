@@ -19,7 +19,7 @@ public class TestDriveCommand extends Command {
   // creating a private class for the MainDriveSubsystem
   private final TestDriveSubsystem driveSubsystem;
 
-  private final XboxController armStick;
+  private final XboxController secondStick;
 
   /** Creates a new DriveCommand using the two above classes */
   public TestDriveCommand(TestDriveSubsystem driveSubsystem, XboxController joystick,
@@ -32,7 +32,7 @@ public class TestDriveCommand extends Command {
     // specifying which subsystem to use for driving
     this.driveSubsystem = driveSubsystem;
 
-    this.armStick = secondaryJoystick;
+    this.secondStick = secondaryJoystick;
   }
 
   // error message if the below code fails
@@ -73,7 +73,7 @@ public class TestDriveCommand extends Command {
     }
     double DpadSpeed = Constants.DpadSpeed;
     if (!isMoving) {
-      switch (armStick.getPOV()) {
+      switch (secondStick.getPOV()) {
         case 0:
           driveSubsystem.driveLine(DpadSpeed);
           return;
@@ -87,8 +87,8 @@ public class TestDriveCommand extends Command {
           driveSubsystem.rotation(-DpadSpeed);
           return;
       }
-      if (Math.abs(armStick.getLeftX()) > 0.01) {
-        driveSubsystem.rotation(armStick.getLeftX() * DpadSpeed);
+      if (Math.abs(secondStick.getLeftX()) > 0.01) {
+        driveSubsystem.rotation(secondStick.getLeftX() * DpadSpeed);
       }
     }
   }
