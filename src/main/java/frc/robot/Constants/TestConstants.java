@@ -18,9 +18,9 @@ public class TestConstants {
 
     // constants for MainDriveSubsystem, speed + rotation factor (was for the PWMs
     // not the Neos...)
-    public static final double SpeedFactor = 0.6;
+    public static final double SpeedFactor = 0.4;
     public static final double SpeedFactorLow = 0.3;
-    public static final double SpeedFactorHigh = 0.7;
+    public static final double SpeedFactorHigh = 0.5;
     public static final double RotationFactor = 0.4;
     public static final double RotationFactorLow = 0.3;
     public static final double RotationFactorHigh = 0.5;
