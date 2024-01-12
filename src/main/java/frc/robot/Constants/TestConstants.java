@@ -23,6 +23,6 @@ public class TestConstants {
     public static final double RotationFactorHigh = 0.5;
 
     // create a private class for the motorType, brushless motors
-    public static final CANSparkLowLevel.MotorType kBrushed;
+    public static final CANSparkLowLevel.MotorType kBrushless;
 
 }
