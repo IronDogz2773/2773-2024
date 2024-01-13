@@ -1,6 +1,6 @@
 package frc.robot.Subsystems.MainSubsystems.SwerveSubsystems;
 
-import com.ctre.phoenix.sensors.CANCoder;
+import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
@@ -26,10 +26,10 @@ public class SwerveModule {
 
   private RelativeEncoder driveEncoder;
   private RelativeEncoder integratedAngleEncoder;
-  private CANCoder angleEncoder;
+  private CANcoder angleEncoder;
 
-  private final SparkMaxPIDController driveController;
-  private final SparkMaxPIDController angleController;
+  private final SparkPIDController driveController;
+  private final SparkPIDController angleController;
 
   private final SimpleMotorFeedforward feedforward =
       new SimpleMotorFeedforward(
@@ -40,7 +40,7 @@ public class SwerveModule {
     angleOffset = moduleConstants.angleOffset;
 
     /* Angle Encoder Config */
-    angleEncoder = new CANCoder(moduleConstants.cancoderID);
+    angleEncoder = new CANcoder(moduleConstants.cancoderID);
     configAngleEncoder();
 
     /* Angle Motor Config */

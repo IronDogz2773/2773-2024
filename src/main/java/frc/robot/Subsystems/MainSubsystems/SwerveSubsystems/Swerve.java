@@ -1,6 +1,6 @@
 package frc.robot.Subsystems.MainSubsystems.SwerveSubsystems;
 
-import com.ctre.phoenix.sensors.Pigeon2;
+import com.ctre.phoenix6.hardware.Pigeon2;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;

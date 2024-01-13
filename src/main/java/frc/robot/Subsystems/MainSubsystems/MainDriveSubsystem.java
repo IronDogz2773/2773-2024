@@ -3,12 +3,13 @@ package frc.robot.Subsystems.MainSubsystems;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Constants;
 import frc.robot.Subsystems.MainSubsystems.SwerveSubsystems.*;
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
-public class MainDriveSubsystem extends CommandBase {
+public class MainDriveSubsystem extends Command {
   private Swerve s_Swerve;
   private DoubleSupplier translationSup;
   private DoubleSupplier strafeSup;
