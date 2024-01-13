@@ -1,4 +1,4 @@
-package frc.robot.Subsystems.MainSubsystems.SwerveSubsystems.SwerveDriveSubsystems;
+package frc.robot.Swerve;
 
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModuleConstants;
