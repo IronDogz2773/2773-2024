@@ -1,0 +1,34 @@
+Files
+- Swerve
+	- SwerveDriveSubsystem
+	- SwerveNavigation
+		- SwerveSensorSubsystem
+			- SwerveGyros
+		- SwervePathPlanningSubsystem
+			- SwerveTrackingOdometry
+	- SwerveBasics
+		- SwerveTurnAngleCommand
+		- SwerveMoveDistanceCommand
+	- SwerveBreaking
+		- ActiveBreakingCommand
+	- SwerveSimulationCommand
+- Autonomous
+	- FirstPositionCompoundCommand
+		- FirstPositionMoveCommand
+		- FirstPositionShootCommand
+		- FirstPositionSecondaryCommand
+	- SecondPositionCompoundCommand
+		- SecondPositionMoveCommand
+		- SecondPositionShootCommand
+		- SecondPositionSecondaryCommand
+	- ThirdPositionCompoundCommand
+		- ThirdPositionMoveCommand
+		- ThirdPositionShootCommand
+		- ThirdPositionSecondaryCommand
+
+- Quotes
+	- Will
+		- "I'm an expert at not doing anything." - Will January 2024
+	- Ethan
+		- "You're wearing all black clothes with a rag on it." -- Ethan January 2024
+	- 
