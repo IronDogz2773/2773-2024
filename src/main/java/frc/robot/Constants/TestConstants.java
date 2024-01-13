@@ -33,6 +33,7 @@ public class TestConstants {
 
     public static final double motorTestingSpeed = 0.4;
     public static final double slowMotorTestingSpeed = 0.2;
-    
 
+    public static final int PnuematicsPort1 = 7;
+    public static final int PnuematicsPort2 = 6;
 }
