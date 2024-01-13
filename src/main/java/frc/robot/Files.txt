@@ -1,4 +1,3 @@
-Files
 - Swerve
 	- SwerveDriveSubsystem
 	- SwerveNavigation
@@ -25,6 +24,11 @@ Files
 		- ThirdPositionMoveCommand
 		- ThirdPositionShootCommand
 		- ThirdPositionSecondaryCommand
+// The below files are not set because our systems are not set.
+- Intake
+	- IntakeSubsystem
+		- RetractIntakeCommand
+
 
 - Quotes
 	- Will
