@@ -1,0 +1,60 @@
+Programming Tasks 1/12/2024
+- Swerve Drive
+	- Path-planning
+		- Can hardcode this
+	- *Tele-Op Drive*
+	- *Autonomous*
+- Auto
+	> First Position
+	
+	- > Exit Starting
+	- > Score Speaker
+	- > Score Amp
+	> Second Position
+	
+	- > Exit Starting
+	- > Score Speaker
+	- > Score Amp
+	> Third Position
+	
+	- > Exit Starting
+	- > Score Speaker
+	- > Score Amp
+- Intake running
+	- < Ground
+	- < Slider
+	- < Slow version
+	- **Manual forward**
+	- **Manual backward**
+- Out-take running
+	- *> Amp*
+	- *> Speaker*
+	- > Trap
+	- **Slow (Eject)**
+	- Manual forward
+	- Manual backward
+- Camera/Vision
+	- *Front Camera (on intake? / back of intake [suggestion])*
+	- April-Tag Camera
+		- Detect April Tag
+		- Calculate path to April Tag
+		- > Move to April Tag
+		- Print April Tag
+- Climbing
+	- *Start Climbing*
+	- **Stop Climbing**
+- Utility
+	- **> Emergency Stop**
+	- **> Power Breaking / Active Breaking**
+	- **> Reset Encoders for any / all existing**
+	- *> Simulation of Robot*
+- Fun
+	- LEDs
+	- Chairbot programming (extraneous)
+	- Speakers (is this legal?)
+Key:
+> **Emergency/Safety**
+
+> *Important/Necessary*
+
+> ~~Unnecessary~~
