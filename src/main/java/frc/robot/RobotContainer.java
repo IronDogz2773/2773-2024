@@ -7,7 +7,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import frc.robot.Commands.SwerveDriveCommand;
 import frc.robot.Commands.TestDriveCommand;
 import frc.robot.Constants.Constants;
 import frc.robot.Subsystems.MainSubsystems.MainDriveSubsystem;
@@ -19,13 +18,11 @@ public class RobotContainer {
     private final TestDriveSubsystem testDriveSubsystem = new TestDriveSubsystem();
     private final TestDriveCommand testDriveCommand = new TestDriveCommand(testDriveSubsystem, main_stick, second_stick);
     private final MainDriveSubsystem mainDriveSubsystem = new MainDriveSubsystem();
-    private final SwerveDriveCommand swerveDriveCommand = new SwerveDriveCommand();
 
   public RobotContainer() {
     configureBindings();
     if(Constants.IsTestRobot) {
     testDriveSubsystem.setDefaultCommand(testDriveCommand);}
-    //else mainDriveSubsystem.setDefaultCommand(swerveDriveCommand);
   }
 
   private void configureBindings() {}
