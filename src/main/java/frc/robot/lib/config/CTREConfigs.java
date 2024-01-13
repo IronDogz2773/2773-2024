@@ -1,9 +1,11 @@
 package frc.robot.lib.config;
 
-import com.ctre.phoenix6.sensors.AbsoluteSensorRange;
+import com.ctre.phoenix6.configs.MagnetSensorConfigs;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
 import com.ctre.phoenix6.sensors.SensorInitializationStrategy;
 import com.ctre.phoenix6.sensors.SensorTimeBase;
+import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
+
 import frc.robot.Constants.Constants;
 
 public final class CTREConfigs {
@@ -13,7 +15,7 @@ public final class CTREConfigs {
     swerveCanCoderConfig = new CANcoderConfiguration();
 
     /* Swerve CANCoder Configuration */
-    swerveCanCoderConfig.absoluteSensorRange = AbsoluteSensorRange.Unsigned_0_to_360;
+    swerveCanCoderConfig.absoluteSensorRange = AbsoluteSensorRangeValue.Unsigned_0_to_360;
     swerveCanCoderConfig.sensorDirection = Constants.Swerve.canCoderInvert;
     swerveCanCoderConfig.initializationStrategy =
         SensorInitializationStrategy.BootToAbsolutePosition;
