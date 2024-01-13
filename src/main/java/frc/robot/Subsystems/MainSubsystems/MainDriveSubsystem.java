@@ -1,16 +1,16 @@
 package frc.robot.Subsystems.MainSubsystems;
 
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
-public class MainDriveSubsystem extends Command {
+public class MainDriveSubsystem extends SubsystemBase {
 
   public MainDriveSubsystem()
        {
   }
 
   @Override
-  public void execute() {
+  public void periodic() {
     
   }
 }
