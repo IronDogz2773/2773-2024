@@ -28,4 +28,11 @@ public class TestConstants {
     // create a private class for the motorType, brushless motors, DOES NOT WORK ATM
     //public static final CANSparkLowLevel.MotorType kBrushless;
 
+    public static final int firstMotorTestingCANID = 11;
+    public static final int secondMotorTestingCANID = 19;
+
+    public static final double motorTestingSpeed = 0.4;
+    public static final double slowMotorTestingSpeed = 0.2;
+    
+
 }
