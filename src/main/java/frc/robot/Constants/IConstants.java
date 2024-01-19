@@ -1,8 +1,6 @@
 package frc.robot.Constants;
 
 public interface IConstants {
-
-    
     boolean isTestRobot();
 
     double getBalanceSpeed();
