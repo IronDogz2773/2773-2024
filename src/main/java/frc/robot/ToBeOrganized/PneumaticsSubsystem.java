@@ -5,7 +5,7 @@
 package frc.robot.ToBeOrganized;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.Constants;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -14,13 +14,13 @@ public class PneumaticsSubsystem extends SubsystemBase {
 
   // Initializes the intake motor
   public static final int intakePneumaticsController = 0;
-  private final Solenoid deploySolendoidPCM = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.IsTestRobot ? null
-      : Constants.PnuematicsPort1);
-  private final Solenoid retractSolenoidPCM = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.IsTestRobot ? null
-      : Constants.PnuematicsPort2);
+  private final Solenoid deploySolendoidPCM = new Solenoid(PneumaticsModuleType.CTREPCM, RobotContainer.getInstance().getConstants().isTestRobot() ? null
+      : RobotContainer.getInstance().getConstants().getPnuematicsPort1());
+  private final Solenoid retractSolenoidPCM = new Solenoid(PneumaticsModuleType.CTREPCM, RobotContainer.getInstance().getConstants().isTestRobot() ? null
+      : RobotContainer.getInstance().getConstants().getPnuematicsPort2());
   public Object retractIntake;
   public static boolean clawIsClosed = false; // false is open, true is closed
-  Compressor pcmCompressor = new Compressor(Constants.IsTestRobot ? null
+  Compressor pcmCompressor = new Compressor(RobotContainer.getInstance().getConstants().isTestRobot() ? null
       : 0, PneumaticsModuleType.CTREPCM);
 
   /** Creates a new TestPneumaticsSubsystem. */

@@ -2,7 +2,7 @@ package frc.robot.TestBot;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.Constants;
+import frc.robot.RobotContainer;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
@@ -12,10 +12,10 @@ public class TestDriveSubsystem extends SubsystemBase {
   // DifferentialDrive(m_leftMotor, m_rightMotor);
   // Above is our old DifferentialDrive, now we are using MotorControllerGroups
   // specific drive motors
-  private  CANSparkMax leftForMotor = new CANSparkMax(Constants.leftForWheelsCANID, MotorType.kBrushless);
-  private  CANSparkMax rightForMotor = new CANSparkMax(Constants.rightForWheelsCANID, MotorType.kBrushless);
-  private final CANSparkMax leftBackMotor = new CANSparkMax(Constants.leftBackWheelsCANID, MotorType.kBrushless);
-  private final CANSparkMax rightBackMotor = new CANSparkMax(Constants.rightBackWheelsCANID, MotorType.kBrushless);
+  private  CANSparkMax leftForMotor = new CANSparkMax(RobotContainer.getInstance().getConstants().getLFWheelsCANID(), MotorType.kBrushless);
+  private  CANSparkMax rightForMotor = new CANSparkMax(RobotContainer.getInstance().getConstants().getRFWheelsCANID(), MotorType.kBrushless);
+  private final CANSparkMax leftBackMotor = new CANSparkMax(RobotContainer.getInstance().getConstants().getLBWheelsCANID(), MotorType.kBrushless);
+  private final CANSparkMax rightBackMotor = new CANSparkMax(RobotContainer.getInstance().getConstants().getRBWheelsCANID(), MotorType.kBrushless);
   private final DifferentialDrive mainDrive = new DifferentialDrive(leftForMotor, rightForMotor);
 
   //private final MotorControllerGroup leftGroup = new MotorControllerGroup(leftBackMotor, leftForMotor);
