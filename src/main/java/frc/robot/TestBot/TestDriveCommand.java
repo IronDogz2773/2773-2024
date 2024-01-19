@@ -9,7 +9,7 @@ import edu.wpi.first.math.filter.SlewRateLimiter;
 //importing the XboxController commands
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer;
+import frc.robot.Constants;
 
 //defining a class MainDriveCommand which branches off of the CommandBase (imported earlier)
 public class TestDriveCommand extends Command {
@@ -56,21 +56,21 @@ public class TestDriveCommand extends Command {
     boolean isSlow = joystick.getRawButton(6);
     if (!isSlow) {
       // Calculates the next value of the output
-      // double filterOutput = filter.calculate(-joystick.getLeftY() * RobotContainer.getInstance().getConstants().getSpeedFactor);
+      // double filterOutput = filter.calculate(-joystick.getLeftY() * Constants.SpeedFactor);
       double speedRateControl = Math.abs(joystick.getRightTriggerAxis()) >= 0.01 ? joystick.getRightTriggerAxis()
           : -joystick.getRightY();
-      double filterOutput = -joystick.getLeftY() * RobotContainer.getInstance().getConstants().getSpeedFactor()
-          * (1 + RobotContainer.getInstance().getConstants().getSpeedIncrease() * speedRateControl);
+      double filterOutput = -joystick.getLeftY() * Constants.speedFactor
+          * (1 + Constants.speedIncrease * speedRateControl);
       driveSubsystem.arcadeDrive(
-          filterOutput, -joystick.getLeftX() * RobotContainer.getInstance().getConstants().getRotationFactor());
+          filterOutput, -joystick.getLeftX() * Constants.rotationFactor);
       isMoving = Math.abs(filterOutput) > 0.01 || Math.abs(joystick.getLeftX()) > 0.01;
 
     } else {
-      driveSubsystem.arcadeDrive(-joystick.getLeftY() * RobotContainer.getInstance().getConstants().getSpeedFactorLow(),
-          -joystick.getLeftX() * RobotContainer.getInstance().getConstants().getRotationFactorLow());
+      driveSubsystem.arcadeDrive(-joystick.getLeftY() * Constants.speedFactorLow,
+          -joystick.getLeftX() * Constants.rotationFactorLow);
       isMoving = Math.abs(joystick.getLeftY()) > 0.01 || Math.abs(joystick.getLeftX()) > 0.01;
     }
-    double DpadSpeed = RobotContainer.getInstance().getConstants().getDpadSpeed();
+    double DpadSpeed = Constants.dpadSpeed;
     if (!isMoving) {
       switch (secondStick.getPOV()) {
         case 0:
