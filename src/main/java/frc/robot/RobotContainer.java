@@ -12,10 +12,10 @@ import frc.robot.TestBot.TestDriveCommand;
 import frc.robot.Constants.Constants;
 
 public class RobotContainer {
-    private final XboxController main_stick = new XboxController(0);
-    private final XboxController second_stick = new XboxController(1);
+    private final XboxController mainStick = new XboxController(0);
+    private final XboxController secondStick = new XboxController(1);
     private final TestDriveSubsystem testDriveSubsystem = new TestDriveSubsystem();
-    private final TestDriveCommand testDriveCommand = new TestDriveCommand(testDriveSubsystem, main_stick, second_stick);
+    private final TestDriveCommand testDriveCommand = new TestDriveCommand(testDriveSubsystem, mainStick, secondStick);
     
   public RobotContainer() {
     configureBindings();
