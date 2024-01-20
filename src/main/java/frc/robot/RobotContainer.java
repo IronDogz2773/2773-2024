@@ -14,11 +14,11 @@ import frc.robot.Constants.Constants;
 public class RobotContainer {
   private final XboxController mainStick = new XboxController(0);
   private final XboxController secondStick = new XboxController(1);
-    
+  private final MainDriveSubsystem mainDriveSubsystem = new MainDriveSubsystem();
+
   public RobotContainer() {
     configureBindings();
-    if(Constants.isTestRobot) {
-      //testDriveSubsystem.setDefaultCommand(testDriveCommand);
+    if(!Constants.isTestRobot) {
     }
   }
 
