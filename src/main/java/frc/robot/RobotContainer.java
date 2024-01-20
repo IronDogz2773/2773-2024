@@ -21,11 +21,12 @@ public class RobotContainer {
   private final TestDriveCommand testDriveCommand = new TestDriveCommand(testDriveSubsystem, mainStick, secondStick);
     InstantCommand driveSlow = new InstantCommand(testDriveSubsystem::driveSlow, testDriveSubsystem);
     InstantCommand turnSlow = new InstantCommand(testDriveSubsystem::turnSlow, testDriveSubsystem);
+    InstantCommand stopAllDrive = new InstantCommand(testDriveSubsystem::stopAllDrive, testDriveSubsystem);
     
   private Command driveAndTurnAutoCommand() {
     final ParallelRaceGroup driveForTwoSlow = new ParallelRaceGroup(driveSlow, new WaitCommand(2));
     final ParallelRaceGroup turnFor10Slow = new ParallelRaceGroup(turnSlow, new WaitCommand(10));
-    return driveForTwoSlow.andThen(turnFor10Slow);//.andThen(driveForTwoSlow);
+    return driveForTwoSlow.andThen(stopAllDrive).andThen(turnFor10Slow).andThen(stopAllDrive);//.andThen(driveForTwoSlow);
   }
 
 
