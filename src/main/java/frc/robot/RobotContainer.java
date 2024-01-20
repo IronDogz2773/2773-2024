@@ -25,7 +25,7 @@ public class RobotContainer {
   private Command driveAndTurnAutoCommand() {
     final ParallelRaceGroup driveForTwoSlow = new ParallelRaceGroup(driveSlow, new WaitCommand(2));
     final ParallelRaceGroup turnFor10Slow = new ParallelRaceGroup(turnSlow, new WaitCommand(10));
-    return driveForTwoSlow.andThen(turnFor10Slow).andThen(driveForTwoSlow);
+    return driveForTwoSlow.andThen(turnFor10Slow);//.andThen(driveForTwoSlow);
   }
 
 
