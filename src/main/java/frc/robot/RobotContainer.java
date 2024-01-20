@@ -29,6 +29,7 @@ public class RobotContainer {
     InstantCommand driveSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::runSwerveDrive);
     InstantCommand stopDriveSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::stopSwerveDrive);
     InstantCommand stopTurnSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::stopSwerveTurn);
+    InstantCommand getTestEncoderPosition = new InstantCommand(testRotateMotorsCommand::getTestEncoder);
     
   private Command driveAndTurnAutoCommand() {
     final ParallelRaceGroup driveForTwoSlow = new ParallelRaceGroup(driveSlow, new WaitCommand(2));
@@ -40,7 +41,7 @@ public class RobotContainer {
     JoystickButton driveSwerveModule = new JoystickButton(mainStick, 2);
     JoystickButton stopTurnSwerveModule = new JoystickButton(mainStick, 3);
     JoystickButton stopDriveSwerveModule = new JoystickButton(mainStick, 4);
-
+    JoystickButton getTestEncoderButton = new JoystickButton(secondStick, 1);
 
   public RobotContainer() {
     configureBindings();
@@ -51,11 +52,12 @@ public class RobotContainer {
 
   private void configureBindings() {
     
-
+    getTestEncoderButton.onTrue(getTestEncoderPosition);
     turnSwerveModule.onTrue(turnSwerveModuleCommand);
     driveSwerveModule.onTrue(driveSwerveModuleCommand);
     stopDriveSwerveModule.onTrue(stopDriveSwerveModuleCommand);
     stopTurnSwerveModule.onTrue(stopTurnSwerveModuleCommand);
+
 
   }
 
