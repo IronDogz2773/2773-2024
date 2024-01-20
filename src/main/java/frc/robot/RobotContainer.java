@@ -10,7 +10,9 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.TestBot.TestDriveSubsystem;
+import frc.robot.TestBot.TestRotateMotorsCommand;
 import frc.robot.TestBot.TestDriveCommand;
 import frc.robot.Constants;
 
@@ -19,15 +21,25 @@ public class RobotContainer {
   private final XboxController secondStick = new XboxController(1);
   private final TestDriveSubsystem testDriveSubsystem = new TestDriveSubsystem();
   private final TestDriveCommand testDriveCommand = new TestDriveCommand(testDriveSubsystem, mainStick, secondStick);
+  private final TestRotateMotorsCommand testRotateMotorsCommand = new TestRotateMotorsCommand();
     InstantCommand driveSlow = new InstantCommand(testDriveSubsystem::driveSlow, testDriveSubsystem);
     InstantCommand turnSlow = new InstantCommand(testDriveSubsystem::turnSlow, testDriveSubsystem);
     InstantCommand stopAllDrive = new InstantCommand(testDriveSubsystem::stopAllDrive, testDriveSubsystem);
+    InstantCommand turnSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::runSwerveTurn);
+    InstantCommand driveSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::runSwerveDrive);
+    InstantCommand stopDriveSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::stopSwerveDrive);
+    InstantCommand stopTurnSwerveModuleCommand = new InstantCommand(testRotateMotorsCommand::stopSwerveTurn);
     
   private Command driveAndTurnAutoCommand() {
     final ParallelRaceGroup driveForTwoSlow = new ParallelRaceGroup(driveSlow, new WaitCommand(2));
     final ParallelRaceGroup turnFor10Slow = new ParallelRaceGroup(turnSlow, new WaitCommand(10));
     return driveForTwoSlow.andThen(stopAllDrive).andThen(turnFor10Slow).andThen(stopAllDrive);//.andThen(driveForTwoSlow);
   }
+
+    JoystickButton turnSwerveModule = new JoystickButton(mainStick, 1);
+    JoystickButton driveSwerveModule = new JoystickButton(mainStick, 2);
+    JoystickButton stopTurnSwerveModule = new JoystickButton(mainStick, 3);
+    JoystickButton stopDriveSwerveModule = new JoystickButton(mainStick, 4);
 
 
   public RobotContainer() {
@@ -37,7 +49,15 @@ public class RobotContainer {
     }
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    
+
+    turnSwerveModule.onTrue(turnSwerveModuleCommand);
+    driveSwerveModule.onTrue(driveSwerveModuleCommand);
+    stopDriveSwerveModule.onTrue(stopDriveSwerveModuleCommand);
+    stopTurnSwerveModule.onTrue(stopTurnSwerveModuleCommand);
+
+  }
 
   public Command getAutonomousCommand() {
     return driveAndTurnAutoCommand(); //Commands.print("No autonomous command configured");
