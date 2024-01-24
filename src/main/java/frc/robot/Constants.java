@@ -23,8 +23,8 @@ public class Constants {
     public static final double rotationFactorLow = 0.3;
     public static final double rotationFactorHigh = 0.5;
     
-    public static final int firstMotorTestingCANID = 11;
-    public static final int secondMotorTestingCANID = 19;
+    public static final int firstMotorTestingCANID = -1; //11;
+    public static final int secondMotorTestingCANID = -1; //19;
     public static final double motorTestingSpeed = 0.4;
     public static final double slowMotorTestingSpeed = 0.2;
 
