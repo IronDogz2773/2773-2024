@@ -11,7 +11,7 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveModule;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 
-
+//TODO everything related to odometry and gyros in this class is messed up
 
 // Example SwerveDrive class
 public class SwerveDriveSubsystem extends SubsystemBase
@@ -30,9 +30,8 @@ public class SwerveDriveSubsystem extends SubsystemBase
         swerveModules = new SwerveModule[4]; // Psuedo-code; Create swerve modules here.
         
         // Create SwerveDriveKinematics object
-        // 12.5in from center of robot to center of wheel.
-        // 12.5in is converted to meters to work with object.
         // Translation2d(x,y) == Translation2d(front, left)
+        //TODO get distance from modules to gyro, put below
         kinematics = new SwerveDriveKinematics(
             new Translation2d(Units.inchesToMeters(12.5), Units.inchesToMeters(12.5)), // Front Left
             new Translation2d(Units.inchesToMeters(12.5), Units.inchesToMeters(-12.5)), // Front Right
@@ -40,7 +39,7 @@ public class SwerveDriveSubsystem extends SubsystemBase
             new Translation2d(Units.inchesToMeters(-12.5), Units.inchesToMeters(-12.5))  // Back Right
         );
         
-        gyro = new Gyroscope(); // Psuedo-constructor for generating gyroscope.
+        Gyroscope gyro = new Gyroscope(); // Psuedo-constructor for generating gyroscope.
 
         // Create the SwerveDriveOdometry given the current angle, the robot is at x=0, r=0, and heading=0
         odometry = new SwerveDriveOdometry(
