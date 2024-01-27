@@ -4,15 +4,6 @@
 
 package frc.robot;
 
-import com.ctre.phoenix6.StatusSignal;
-import com.ctre.phoenix6.configs.CANcoderConfiguration;
-import com.ctre.phoenix6.configs.CANcoderConfigurator;
-import com.ctre.phoenix6.configs.MagnetSensorConfigs;
-import com.ctre.phoenix6.hardware.CANcoder;
-import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
-import com.ctre.phoenix6.signals.SensorDirectionValue;
-
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -22,26 +13,14 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private CANcoder     absoluteEncoder;
-
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    absoluteEncoder = new CANcoder(/* Change this to the CAN ID of the CANcoder */ 0);
-    CANcoderConfigurator cfg = absoluteEncoder.getConfigurator();
-    cfg.apply(new CANcoderConfiguration());
-    MagnetSensorConfigs  magnetSensorConfiguration = new MagnetSensorConfigs();
-    cfg.refresh(magnetSensorConfiguration);
-    cfg.apply(magnetSensorConfiguration.withAbsoluteSensorRange(AbsoluteSensorRangeValue.Unsigned_0To1).withSensorDirection(SensorDirectionValue.CounterClockwise_Positive));
   }
 
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
-    StatusSignal<Double> angle = absoluteEncoder.getAbsolutePosition().waitForUpdate(0.1);
-
-    System.out.println("Absolute Encoder Angle (degrees): " + Units.rotationsToDegrees(angle.getValue()));
-  
   }
 
   @Override
@@ -75,9 +54,9 @@ public class Robot extends TimedRobot {
     }
   }
 
- @Override
+  @Override
   public void teleopPeriodic() {}
- 
+
   @Override
   public void teleopExit() {}
 

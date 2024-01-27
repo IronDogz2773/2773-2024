@@ -7,25 +7,24 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import frc.robot.Constants.Constants;
-
-
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class RobotContainer {
-  private final XboxController mainStick = new XboxController(0);
-  private final XboxController secondStick = new XboxController(1);
-  private final MainDriveSubsystem mainDriveSubsystem = new MainDriveSubsystem();
-
+  TestSubsystem t = new TestSubsystem();
+  XboxController joy = new XboxController(0);
+  DriveCommand driveCommand = new DriveCommand(t, joy);
+  JoystickButton button = new JoystickButton(joy, 1);
   public RobotContainer() {
     configureBindings();
-    if(!Constants.isTestRobot) {
-    }
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    t.setDefaultCommand(driveCommand);
+    button.whileTrue(new RunCommand(() -> t.reset(), t));
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
   }
-
 }
